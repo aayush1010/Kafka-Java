@@ -92,10 +92,7 @@ public class TwitterProducer {
         return  producer;
     }
 
-    String ConsumerKey = "eoHzzjiAiSRhQkqGsPj0h2X7Y";
-    String ConsumerSecret = "9yEFObPnRHOLUSU2PKOmXgLU1WSN89qVkmXHPpakAuuKQhBxrQ";
-    String Token = "3640638073-opRTwM1a6Pa37YPKcULdxnemNtWdMGDKZtH0DIJ";
-    String Secret = "6V56VUDF91sx7uYUQSfQGVpUqAgpstaHjVIlo2IyvK1Ku";
+
 
     private Client createTwitterClient(BlockingQueue<String> msgQueue) {
         Hosts hosebirdHosts = new HttpHosts(Constants.STREAM_HOST);
@@ -104,7 +101,7 @@ public class TwitterProducer {
         List<String> terms = Lists.newArrayList("bitcoin", "sports", "india");
         hosebirdEndpoint.trackTerms(terms);
         // These secrets should be read from a config file
-        Authentication hosebirdAuth = new OAuth1(ConsumerKey, ConsumerSecret, Token, Secret);
+        Authentication hosebirdAuth = new OAuth1("ConsumerKey", "ConsumerSecret", "Token", "Secret");
 
         ClientBuilder builder = new ClientBuilder()
                 .name("Hosebird-Client-01")                              // optional: mainly for the logs
